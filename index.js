@@ -53,7 +53,7 @@ var ioSocket = http.createServer(app).listen(app.get('port'), function(){
 });
 
 var io = require('socket.io').listen(ioSocket, { log: app.get('debug') });
-io.set('resource','/socket.io');
+io.set('resource','/v1/socket.io');
 io.sockets.on('connection', function (socket) {
   require('./routes/sockets')(io,socket);
 });
