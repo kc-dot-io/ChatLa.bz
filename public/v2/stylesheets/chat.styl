@@ -1,0 +1,49 @@
+html, body
+  padding: 0
+  margin: 0
+  height: 100%
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+
+  #chat
+    width: 500px
+    height: 100%
+    margin: 0 auto
+    padding: 0
+
+    #ctrl
+      width: 500px
+      height: 30px
+      position: absolute
+      bottom: 0px
+
+      form
+        overflow: hidden
+
+        input#msg
+          float: left
+          width: 428px
+          border-radius: 0
+
+        input[type=submit]
+          float: left
+          height: 30px
+          border-radius: 0
+
+
+    #msgs
+      width: 497px
+      height: 100%
+      overflow: hidden
+      overflow-y: auto
+      clear: left
+      border-left: 1px solid #ccc
+      border-right: 1px solid #ccc
+
+      & > div
+        padding: 10px
+        word-wrap: break
+        overflow: hidden
+
+        &:nth-child(even)
+          background: #efefef
+

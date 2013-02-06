@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  div#chat
+    div#msgs
+    div#ctrl
+      form(action='#')
+        div.input-append
+          input#msg.input(type='text', autocomplete="off")
+          input.btn.btn-primary(type='submit', value='Send')
+
+
+
