@@ -49,17 +49,17 @@ var App = (function(){
 
     if(!this.user) return;
 
-    this.socket.on('disconnect', function() {
-      self.socket.emit('/chat/server/user/rm', self.user);
-    });
+    this.socket.on('disconnect', function() { });
     this.socket.emit('/chat/server/user/add', this.user);
     this.socket.on('/chat/client/user/add', function(data){
       self.users = data;
-      $('#stats').html('<strong>Active Users</strong>: '+self.users.join(', '));
+      $('#stats').html('').uiji('strong"Users: "');
+      $('#stats').uiji('span"'+data.join(',')+'"');
     });
     this.socket.on('/chat/client/user/rm', function(data) {
       self.users = data;
-      $('#stats').html('<strong>Active Users</strong>: '+self.users.join(', '));
+      $('#stats').html('').uiji('strong"Users: "');
+      $('#stats').uiji('span"'+data.join(',')+'"');
     });
 
     this.socket.on('/chat/client/msg/add', function(data){

@@ -15,9 +15,7 @@ module.exports = function(io,socket) {
   });
 
   socket.on('/chat/server/user/rm', function(user) {
-    users.forEach(function(u,i) {
-      if(u == user) delete users[i];
-    });
+    users.forEach(function(u,i) { if(u == user) users.splice(i,i); });
     io.sockets.emit('/chat/client/user/rm', users);
     io.sockets.emit('/chat/client/msg/add', '<div><strong>'+user+'</strong> <i> has left!</i></div>');
   });
@@ -26,6 +24,5 @@ module.exports = function(io,socket) {
       if(msg && users.indexOf(msg) == -1) messages.push(msg);
       if(msg) io.sockets.emit('/chat/client/msg/add', '<div><strong>'+msg.user+'</strong>: '+msg.data.toString()+'</div>');
   });
-
 
 };
