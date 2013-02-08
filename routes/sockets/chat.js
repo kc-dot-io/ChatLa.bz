@@ -20,9 +20,9 @@ module.exports = function(io,socket) {
     io.sockets.emit('/chat/client/msg/add', '<div><strong>'+user+'</strong> <i> has left!</i></div>');
   });
 
-  socket.on('/chat/client/msg/add', function(msg){
-    if(msg && users.indexOf(msg) == -1) messages.push(msg);
-    if(msg) io.sockets.emit('/chat/client/msg/add', '<div><strong>'+msg.user+'</strong>: '+msg.data.toString()+'</div>');
+  socket.on('/chat/server/msg/add', function(data){
+    if(data.msg && users.indexOf(data.user)) messages.push(data.msg);
+    if(data.msg) io.sockets.emit('/chat/client/msg/add', '<div><strong>'+data.user+'</strong>: '+data.msg.toString()+'</div>');
   });
 
 };

@@ -6,9 +6,11 @@ block content
     div#msgs
     div#ctrl
       form(action='#')
-        div.input-append
-          input#msg.input(type='text', autocomplete="off")
-          input.btn.btn-primary(type='submit', value='Send')
+        input#msg.input(type='text', 
+          autocomplete='off', 
+          value='Write a message...', 
+          onclick='if(this.value=="Write a message...") this.value="";')
+        input.btn.btn-primary(type='submit', value='Send')
 
 
 
